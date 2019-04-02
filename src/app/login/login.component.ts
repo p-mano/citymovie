@@ -11,25 +11,34 @@ import { AlertController } from '@ionic/angular';
 export class LoginComponent implements OnInit {
 
   constructor(private router: Router,private customerService:CustomerService,public alertController: AlertController) { }
-  data = {name:"",password:""};
-  ngOnInit() {}
-  doLogin(){
-    if(this.data.name == this.data.password){
+ customers=[];
+ customer={name:"",password:"",address:"",email:"", phone:""}
+  ngOnInit() {
+    this.customerService.getRemoteCustomers().subscribe((result) => {this.customers = result})
+  }
+  doLogin(customer){
+   for(var i=0;i<this.customers.length;i++) {
+    if((customer.email==this.customers[i].email) && (customer.password == this.customers[i].password)){
+      console.log('i am here');
       this.router.navigate(['/tabs/tab1']);
+      if (localStorage.getItem('user')==null)
+      {
+        localStorage.setItem('user', JSON.stringify(customer)); 
+      }
     }
-    else{
-      this.presentAlert();
+    else {
+      this.invalidUser();
     }
-  }
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Alert',
-      subHeader: 'Login Failed',
-      message: 'please Enter Login Details',
-      buttons: ['OK']
-    });
+   }
+}
+async invalidUser() {
+  const alert = await this.alertController.create({
+    subHeader: 'Email or password is Invalid',
+   
+    buttons: ['Cancel']
+  });
 
-    await alert.present();
-  }
-    
+  await alert.present();
+}
+
 }

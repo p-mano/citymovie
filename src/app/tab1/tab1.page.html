@@ -16,7 +16,7 @@
           <ion-row>
             <ion-col>
               <div >
-                  <img src={{movie.image_url}} >
+                  <img src={{movie.image_url}} (click)="onselect(movie.id)" >
               </div>
             </ion-col>
             <ion-col> 
@@ -36,7 +36,7 @@
             <ion-col>
               <ion-card-subtitle>
                 <span style="vertical-align:center;">UA | {{movie.type}}| {{movie.production_house}} |{{movie.language}} |{{movie.year}} </span>  
-                <ion-button style="float:right;" color="primary" (click)='doLogin()'>Book Now</ion-button> <br> 
+                <ion-button style="float:right;" color="primary" (click)="navigateToBooking()">Book Now</ion-button> <br> 
               </ion-card-subtitle>
               </ion-col>
           </ion-row>
@@ -48,6 +48,7 @@
                     will draw audiences to witness the turning point of this epic journey.
                 </p>
                 </ion-col>
+                
             </ion-row>
         </ion-grid> 
     </ion-card>

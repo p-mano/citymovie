@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'paymentdone',component:PaymentdoneComponent},
   {path:'booking',component:BookingComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' }
+  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
 ];
 @NgModule({
   imports: [

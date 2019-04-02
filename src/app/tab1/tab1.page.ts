@@ -20,13 +20,16 @@ export class Tab1Page {
   ngOnInit() {
     this.movieService.getRemoteMovies().subscribe((result) => {this.movies = result;});
   }
+  onselect(movie){
+    this.router.navigate(['/booking'+movie.id])
+  }
   doLogin(){
     // if(this.data.username == this.data.password){
       this.router.navigate(['/payment']);
     }
 
-  navigateToMovie(){
-    this.router.navigate(['/movie']);
+  navigateToBooking(){
+    this.router.navigate(['booking']);
   }
   deleteAll(){
     localStorage.clear();

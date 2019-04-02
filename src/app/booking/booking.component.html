@@ -1,67 +1,97 @@
-<!-- <ion-header>
-    <ion-toolbar>
-      <ion-title>
-          <ion-icon name="arrow-round-back" (click)="goback()"></ion-icon> 
-        Movie Booking
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content style="background:#f7f7f7;" >
-  
-     
-    <ion-row>
-      <ion-card >
-        <ion-grid>
-            <ion-col>
-            <ion-item>
-                <ion-label>Date Of Movie</ion-label>
-                <ion-datetime [(ngModel)]="booking.movie_date" display-format="MMM DD, YYYY "></ion-datetime>
-              </ion-item>
-            </ion-col>
-              <ion-col>
-                <ion-item>
-                  <ion-label>Tickets</ion-label>
-                  <ion-select value="brown" okText="Okay" [(ngModel)]="booking.tickets" cancelText="Dismiss">
-                    <ion-select-option value="1">1</ion-select-option>
-                    <ion-select-option value="2">2</ion-select-option>
-                    <ion-select-option value="3">3</ion-select-option>
-                    <ion-select-option value="4">4</ion-select-option>
-                    <ion-select-option value="4">5</ion-select-option>
-                    <ion-select-option value="4">6</ion-select-option>
-                  </ion-select>
-                </ion-item>
-                </ion-col>
-            </ion-row>
-          
-                <ion-col> 
-                    <ion-item>
-                        <ion-label>Screen</ion-label>
-                        <ion-select value="brown" okText="Okay" [(ngModel)]="booking.screen" cancelText="Dismiss">
-                          <ion-select-option value="1">1</ion-select-option>
-                          <ion-select-option value="2">2</ion-select-option>
-                          <ion-select-option value="3">3</ion-select-option>
-                          <ion-select-option value="4">4</ion-select-option>
-                        </ion-select>
-                      </ion-item>
-                  </ion-col>
-                  <ion-col> 
-                
-                      <ion-item>
-                          <ion-label>City</ion-label>
-                          <ion-select value="brown" okText="Okay" [(ngModel)]="booking.city" cancelText="Dismiss">
-                            <ion-select-option value="Bangalore">Bangalore</ion-select-option>
-                            <ion-select-option value="hyderabad">hyderabad</ion-select-option>
-                            <ion-select-option value="tiruapti">tiruapti</ion-select-option>
-                            <ion-select-option value="chennai">chennai</ion-select-option>
-                          </ion-select>
-                        </ion-item>
-                        <ion-item>
-                            <ion-button style="float:right;" color="primary" (click)='doLogin()'>Book Now</ion-button> <br> 
-                        </ion-item>
-                    </ion-col>
-              </ion-row>
-          </ion-grid> 
-      </ion-card>
-    
-          </ion-content> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+        <ion-icon name="arrow-round-back" (click)="goback()"></ion-icon> 
+      Movie Booking
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Booking Details</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <!-- <ion-item>
+            <ion-label position="floating">Tickets</ion-label>
+            <ion-input   [(ngModel)]="booking.tickets"></ion-input>
+        </ion-item> -->
+        <ion-item>
+            <ion-label>Tickets</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss"  [(ngModel)]="books.tickets">
+              <ion-select-option value="1">1</ion-select-option>
+              <ion-select-option value="2">2</ion-select-option>
+              <ion-select-option value="3">3</ion-select-option>
+              <ion-select-option value="4">4</ion-select-option>
+              <ion-select-option value="5">5</ion-select-option>
+              <ion-select-option value="6">6</ion-select-option>
+            </ion-select>
+          </ion-item>
+        <ion-item>
+            <ion-label position="floating">Time</ion-label>
+            <ion-datetime display-format="HH:mm"  [(ngModel)]="books.movie_time"></ion-datetime>
+          </ion-item>
+        <!-- <ion-item>
+            <ion-label position="floating">theater</ion-label>
+            <ion-input  [(ngModel)]="booking.theatre"></ion-input>
+        </ion-item> -->
+        <ion-item>
+            <ion-label>theater</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="books.theatre">
+              <ion-select-option value="tulsi">Tulsi</ion-select-option>
+              <ion-select-option value="vinkaya">vinkaya</ion-select-option>
+              <ion-select-option value="pvr">pvr</ion-select-option>
+              <ion-select-option value="inox">inox</ion-select-option>
+            </ion-select>
+          </ion-item>
+        <!-- <ion-item>
+            <ion-label position="floating"></ion-label>
+            <ion-input  [(ngModel)]="booking.screen"></ion-input>
+        </ion-item> -->
+        <ion-item>
+            <ion-label>Screen</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss"  [(ngModel)]="books.screen">
+              <ion-select-option value="1">1</ion-select-option>
+              <ion-select-option value="2">2</ion-select-option>
+              <ion-select-option value="3">3</ion-select-option>
+              <ion-select-option value="4">4</ion-select-option>
+            </ion-select>
+          </ion-item>
+        <!-- <ion-item>
+            <ion-label position="floating">City</ion-label>
+            <ion-input  [(ngModel)]="booking.city"></ion-input>
+        </ion-item> -->
+        <ion-item>
+            <ion-label>City</ion-label>
+            <ion-select value="brown" okText="Okay" cancelText="Dismiss" [(ngModel)]="books.city">
+              <ion-select-option value="bangalore">bangalore</ion-select-option>
+              <ion-select-option value="Chennai">Chennai</ion-select-option>
+              <ion-select-option value="HYderabad">Hyderabad</ion-select-option>
+              <ion-select-option value="Pune">pune</ion-select-option>
+            </ion-select>
+          </ion-item>
+        <ion-item>
+  <ion-label position="full">Date</ion-label>
+  <ion-input [(ngModel)]="books.movie_date" >25-10-2017</ion-input>
+</ion-item>
+        <ion-item>
+            <ion-label position="floating">Movie Date</ion-label>
+            <ion-datetime display-format="DD/MM/YYYY" picker-format="DDDD MMMM YYYY" [(ngModel)]="books.date"></ion-datetime>
+        </ion-item>
+        <!-- <ion-item>
+            <ion-label position="floating"></ion-label>
+            <ion-input type='phone' placeholder='Total' [(ngModel)]="movie.amount"></ion-input>
+        </ion-item> -->
+        <ion-item>
+            <ion-label position="full">Ticket Price</ion-label>
+            <ion-input type='phone'  [(ngModel)]="books.ticket_price" readonly="">150</ion-input>
+        </ion-item>
+        <ion-button style = 'margin-top: 10px;' expand ='full'  (click)="addBooking(books)">Book Ticket</ion-button>
+      </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+   
+ 
